@@ -1,6 +1,6 @@
 <template>
-  <form class="formbox" autocomplete="off">
-  <h2>Register Page</h2>
+  <form class="formbox">
+  <h2>Login Page</h2>
     <v-text-field
       placeholder="Email"
       v-model="email"
@@ -10,19 +10,18 @@
       placeholder="Password"
       type="password"
       v-model="password"
-      autocomplete="new-password"
     ></v-text-field>
     <br>
     <div class="danger-alert" v-html="error" />
     <v-btn
-      color="success"
+      dark
       class="mr-4 regbtn"
-      @click="register"
+      @click='login'
     >
-      Register
+      LogIn
     </v-btn>
-    <p class="mt-4">Do you already have an account ?</p>
-    <router-link :to="{ name: 'login' }" tag="v-btn" class="btn" dark>Log In</router-link>
+    <p class="mt-4">Don't have an account ?</p>
+    <router-link :to="{ name: 'register' }" tag="v-btn" class="btn" dark>Register</router-link>
   </form>
 </template>
 
@@ -38,10 +37,10 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-       this.error = null
-        const response = await Auth.register({
+        this.error = null
+        const response = await Auth.login({
           email: this.email,
           password: this.password
         })
