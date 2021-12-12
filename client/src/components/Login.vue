@@ -44,6 +44,11 @@ export default {
           email: this.email,
           password: this.password
         })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({
+          name:'sessions'
+      })
       }
       catch (error) {
         this.error = error.response.data.error
@@ -58,6 +63,7 @@ export default {
  background-color: #000490 !important;
  }
  .formbox{
+  margin-top:5rem;
  margin-left:150px;
  margin-right:150px;
  border: solid 2px #e9e9ff;

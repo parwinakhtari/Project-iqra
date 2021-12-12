@@ -1,12 +1,17 @@
 <template>
   <div id="app">
+    <PageHeader />
     <router-view/>
   </div>
 </template>
 
 <script>
+import PageHeader from '@/components/Header.vue'
 export default {
-  name: 'App'
+  name: 'App',
+    components: {
+    PageHeader
+  }
 }
 </script>
 
@@ -17,7 +22,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 180px;
+  margin-top: 10px;
 }
 .danger-alert {
   color: red;
