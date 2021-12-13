@@ -15,4 +15,7 @@ module.exports = (app) => {
 
     app.post('/sessions',
     SessionController.post)
+
+    app.get('/upcomingsessions',
+    SessionController.upcoming)
 }

@@ -1,5 +1,5 @@
 <template>
-<panel title="Today's Sessions">
+<panel title="Upcoming Sessions">
 <div v-for="session in sessions" :key="session.id">
     <slot>
         <v-card
@@ -35,7 +35,7 @@ export default {
         }
     },
     async mounted () {
-        const response= await SessionService.index()
+        const response= await SessionService.upcoming()
         this.sessions = response.data
     }
 }

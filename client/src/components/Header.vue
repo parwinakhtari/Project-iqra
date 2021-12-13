@@ -8,7 +8,12 @@
     <ul class="navbar-nav">
         <li class="nav-item">
             <router-link :to="{ name: 'sessions' }" tag="v-btn" class="btn" v-if="$store.state.isUserLoggedIn" dark>
-                Browse Sessions
+                Todays Sessions
+            </router-link>
+      </li>
+      <li class="nav-item">
+            <router-link :to="{ name: 'upcomingsessions' }" tag="v-btn" class="btn" v-if="$store.state.isUserLoggedIn" dark>
+                Upcoming Sessions
             </router-link>
       </li>
       <li class="nav-item">

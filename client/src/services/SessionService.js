@@ -6,5 +6,9 @@ export default {
     },
     create(session) {
         return Api().post('sessions',session)
+    },
+    upcoming () {
+        return Api().get('upcomingsessions')
+
     }
 }

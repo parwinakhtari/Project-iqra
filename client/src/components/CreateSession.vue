@@ -4,7 +4,6 @@
     <v-text-field
       placeholder="Title"
       v-model="title"
-      required
     ></v-text-field>
     <br>
     <v-text-field
@@ -27,6 +26,7 @@
       v-model="meetlink"
     ></v-text-field>
     <br>
+    <div class="danger-alert" v-html="error" />
     <v-btn
       dark
       class="createbtn"
@@ -49,7 +49,8 @@ export default {
                 author: '',
                 topic: '',
                 date: '',
-                meetlink: ''
+                meetlink: '',
+                error: null
         }
     },
     components: {
@@ -57,6 +58,11 @@ export default {
     },
     methods: {
         async create() {
+          this.error = null
+         if(this.title === '' || this.author === '' || this.topic === '' || this.date === '' || this.meetlink === ''){
+           this.error = 'Please fill in all the required fields'
+           return
+         }
             try {
                 await SessionService.create({
                         title: this.title,

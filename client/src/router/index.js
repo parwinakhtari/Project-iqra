@@ -5,6 +5,7 @@ import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Sessions from '@/components/Sessions'
 import CreateSession from '@/components/CreateSession'
+import UpcomingSessions from '@/components/UpcomingSessions'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/sessions',
       name: 'sessions',
       component: Sessions
+    },
+    {
+      path: '/upcomingsessions',
+      name: 'upcomingsessions',
+      component: UpcomingSessions
     },
     {
       path: '/createsessions',
